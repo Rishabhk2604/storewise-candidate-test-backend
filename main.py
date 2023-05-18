@@ -2,6 +2,8 @@ import traceback
 from doctest import UnexpectedException
 from typing import List
 
+
+
 from bullet import Bullet, colors, utils
 
 
@@ -13,13 +15,20 @@ class PurchaseItem(object):
 
 def get_total_order_amount(order: List[PurchaseItem]):
 
-    """
-    The total cost of all the items ordered
-    """
+    
+    # Calculating the total cost of all the items ordered
+    
 
-    raise NotImplementedError(
-        "REMOVE the error and RETURN the total amount for the order"
-    )
+    total_item = 0
+
+    for i in order:
+        total_item += i
+
+    return total_item
+
+    # raise NotImplementedError(
+    #     "REMOVE the error and RETURN the total amount for the order"
+    # )
 
 
 def get_service_charge(order: List[PurchaseItem]):
@@ -34,9 +43,21 @@ def get_service_charge(order: List[PurchaseItem]):
         Order Amount = 3000, Service Charge = 600
     """
 
-    raise NotImplementedError(
-        "REMOVE the error and RETURN service charge amount for the order"
-    )
+
+    # Getting the service charge
+    order_amount = get_total_order_amount(order)
+    service_charge = min(order_amount // 100, 20) * (order_amount / 100)
+
+
+    
+    return service_charge
+
+
+
+
+    # raise NotImplementedError(
+    #     "REMOVE the error and RETURN service charge amount for the order"
+    # )
 
 
 class Option(object):
