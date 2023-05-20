@@ -19,12 +19,10 @@ def get_total_order_amount(order: List[PurchaseItem]):
     # Calculating the total cost of all the items ordered
     
 
-    total_item = 0
-
-    for i in order:
-        total_item += i
-
-    return total_item
+    total_amount = 0
+    for item in order:
+        total_amount += item.price
+    return total_amount
 
     # raise NotImplementedError(
     #     "REMOVE the error and RETURN the total amount for the order"
